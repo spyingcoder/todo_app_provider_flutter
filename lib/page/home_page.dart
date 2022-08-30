@@ -32,11 +32,11 @@ class _HomePageState extends State<HomePage> {
           selectedIndex = index;
         }),
         items: const [
-           BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.fact_check_outlined),
             label: 'Todos',
           ),
-           BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(
               Icons.done,
               size: 28,
@@ -51,7 +51,11 @@ class _HomePageState extends State<HomePage> {
           borderRadius: BorderRadius.circular(20),
         ),
         backgroundColor: Colors.black,
-        onPressed: () => showDialog(context: context, builder: (_) => const AddTodoDialogWidget(), barrierDismissible: false ),
+        onPressed: () => showDialog(
+          context: context,
+          builder: (_) => const AddTodoDialogWidget(),
+          barrierDismissible: false,
+        ),
         child: const Icon(Icons.add),
       ),
     );

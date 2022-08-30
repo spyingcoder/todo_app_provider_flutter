@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app_provider/model/todo.dart';
@@ -11,6 +13,9 @@ class TodoListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = Provider.of<TodosProvider>(context);
     final todos = provider.todos;
+    for (var item in todos) {
+      log(item.title.toString());
+    }
 
     return todos.isEmpty
         ? const Center(

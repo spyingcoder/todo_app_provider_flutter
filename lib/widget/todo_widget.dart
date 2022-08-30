@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:todo_app_provider/model/todo.dart';
+import 'dart:developer' as developer;
 
 class TodoWidget extends StatelessWidget {
   final Todo todo;
 
-  const TodoWidget({Key? key, required this.todo}) : super(key: key);
+  const TodoWidget({
+    Key? key,
+    required this.todo,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) => ClipRRect(
