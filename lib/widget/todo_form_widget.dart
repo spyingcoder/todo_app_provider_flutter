@@ -32,6 +32,7 @@ class TodoFormWidget extends StatelessWidget {
               height: 32,
             ),
             buildButton(),
+            buildCancel(context),
           ],
         ),
       );
@@ -70,6 +71,20 @@ class TodoFormWidget extends StatelessWidget {
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(Colors.black),
           ),
+        ),
+      );
+
+  Widget buildCancel(BuildContext context) => SizedBox(
+        width: double.infinity,
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: const Text('Cancel'),
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(Colors.white),
+              foregroundColor: MaterialStateProperty.all(Colors.black),
+              elevation: MaterialStateProperty.all(2)),
         ),
       );
 }
