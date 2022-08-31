@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app_provider/model/todo.dart';
+import 'package:todo_app_provider/page/edit_todo_page.dart';
 
 import 'package:todo_app_provider/provider/todos.dart';
 import 'package:todo_app_provider/utils.dart';
@@ -23,7 +24,7 @@ class TodoWidget extends StatelessWidget {
             motion: const ScrollMotion(),
             children: [
               SlidableAction(
-                onPressed: (BuildContext context) {},
+                onPressed: (BuildContext context) => editTodo(context, todo),
                 backgroundColor: Colors.green,
                 foregroundColor: Colors.white,
                 icon: Icons.edit,
@@ -43,7 +44,10 @@ class TodoWidget extends StatelessWidget {
               ),
             ],
           ),
-          child: buildTodo(context),
+          child: InkWell(
+            child: buildTodo(context),
+            onTap: () => editTodo(context, todo),
+          ),
         ),
       );
 
@@ -102,4 +106,7 @@ class TodoWidget extends StatelessWidget {
     provider.removeTodo(todo);
     Utils.showSnackBar(context, 'Deleted the task');
   }
+
+  void editTodo(BuildContext context, Todo todo) => Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context) => EditTodoPage(todo: todo)));
 }
