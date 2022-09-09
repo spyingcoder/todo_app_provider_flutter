@@ -57,7 +57,7 @@ class _EditTodoPageState extends State<EditTodoPage> {
                 this.description = description;
               }),
               onSavedTodo: saveTodo,
-            ),
+            ),  
           ),
         ),
       );
