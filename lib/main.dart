@@ -5,10 +5,10 @@ import 'package:todo_app_provider/firebase_options.dart';
 import 'package:todo_app_provider/page/home_page.dart';
 import 'package:todo_app_provider/provider/todos.dart';
 
-Future main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform,
+    options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
 }
